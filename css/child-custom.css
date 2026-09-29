@@ -1,0 +1,788 @@
+/* Child Theme - Custom CSS File for Buyers to Modify */
+
+/* =========================================================
+   FONT AWESOME "SWAP" OVERRIDE
+   ========================================================= */
+
+@font-face {
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../../realhomes/common/font-awesome/webfonts/fa-regular-400.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("../../realhomes/common/font-awesome/webfonts/fa-solid-900.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Font Awesome 5 Brands";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../../realhomes/common/font-awesome/webfonts/fa-brands-400.woff2") format("woff2");
+}
+
+
+
+/* Prevent Hero Search Form from expanding and pushing the page down on mobile */
+@media (max-width: 767px) {
+    .elementor-element-e532d9b {
+        min-height: 685px !important;
+    }
+}
+/* ==========================================================================
+   1. ENERGY CLASS SETTINGS (9-STEP GREEK SCALE)
+   ========================================================================== */
+/* Force the grid to accommodate 9 equal blocks instead of the native 8 */
+.energy-class li, .rh-property-energy-class-list li {
+    width: 11.111% !important;
+    flex: 1 1 11.111% !important;
+}
+
+.energy-class li.a\+ { background-color: #00845a !important; }
+.energy-class li.a { background-color: #18b058 !important; }
+.energy-class li.b\+ { background-color: #8dc643 !important; }
+.energy-class li.b { background-color: #b1d334 !important; }
+.energy-class li.c { background-color: #ffcc01 !important; }
+.energy-class li.d { background-color: #f6ac63 !important; }
+.energy-class li.e { background-color: #f78622 !important; }
+.energy-class li.f { background-color: #ef1d3a !important; }
+.energy-class li.g { background-color: #d10400 !important; }
+
+.epc-details li span { font-weight: bold !important; }
+
+
+/* ==========================================================================
+   2. UNIFORM IMAGE SIZES (AWS GHOST ATTACHMENTS)
+   ========================================================================== */
+/*  thumbnails in Elementor grids, Search Results, and Map Popups */
+.rh_prop_card__thumbnail img,
+.rh-property-card-v3 .property-thumbnail img,
+.rh-property-card-v3 .rh_property_thumb_wrap img,
+.osm-popup-content .osm-popup-thumb {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important; 
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+.single-property .property-detail-slider-wrapper .flexslider,
+.single-property #property-detail-flexslider,
+.single-property .inspiry_property_portrait_slider {
+    height: 550px !important; 
+    max-height: 60vh !important;
+    background-color: #f5f5f5 !important;
+    border-radius: 4px;
+    overflow: hidden !important;
+    border: none !important;
+    margin-bottom: 15px !important;
+}
+
+/* Lock the viewport height */
+.single-property .property-detail-slider-wrapper .flex-viewport,
+.single-property #property-detail-flexslider .flex-viewport,
+.single-property .inspiry_property_portrait_slider .flex-viewport {
+    height: 100% !important;
+    transition: none !important;
+}
+
+/* Keep normal block display for slides */
+.single-property .property-detail-slider-wrapper .slides li,
+.single-property #property-detail-flexslider .slides li,
+.single-property .inspiry_property_portrait_slider .slides li {
+    height: 550px !important;
+    max-height: 60vh !important;
+    aspect-ratio: unset !important;
+}
+
+/* Ensure the Fancybox anchor link stretches to fill the locked slide */
+.single-property .property-detail-slider-wrapper .slides li a,
+.single-property #property-detail-flexslider .slides li a,
+.single-property .inspiry_property_portrait_slider .slides li a {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.single-property .property-detail-slider-wrapper .slides img,
+.single-property #property-detail-flexslider .slides img,
+.single-property .inspiry_property_portrait_slider .slides img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; 
+    object-position: center center !important;
+    margin: 0 auto !important;
+}
+
+/* ==========================================================================
+   3. UI ENHANCEMENTS & OVERRIDES
+   ========================================================================== */
+
+/* Remove the default white frame and padding from Fancybox image popups */
+.fancybox-slide--image .fancybox-content,
+.fancybox-content {
+    background-color: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Portrait Video Thumbnail Fix */
+.rh_property_video_inner a.inspiry-lightbox-item img {
+    width: 100% !important;
+    max-height: 480px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+/* Search Filter Overrides */
+.rh-force-hide { 
+    display: none !important; 
+} 
+
+.rhea-more-options-wrapper label small, 
+.rhea-option-bar label small, 
+.rhea-more-options-wrapper label span, 
+.rhea-option-bar label span { 
+    display: none !important; 
+}
+
+/* Inquiry Form Multiselect Overrides */
+.rhea-inquiry-field .bootstrap-select.show-tick { 
+    width: 100% !important; 
+} 
+
+.rhea-inquiry-field .bootstrap-select.show-tick > .btn { 
+    background-color: transparent !important; 
+    border: 1px solid #dbdbdb !important; 
+    color: #808080 !important; 
+    box-shadow: none !important; 
+    padding: 12px 15px !important; 
+    min-height: 48px !important; 
+} 
+
+.rhea-inquiry-field .bootstrap-select.show-tick .bs-actionsbox { 
+    padding: 8px !important; 
+} 
+
+.rhea-inquiry-field .bootstrap-select.show-tick .bs-actionsbox .btn { 
+    background-color: #f5f5f5 !important; 
+    color: #333333 !important; 
+    border: 1px solid #ccc !important; 
+    padding: 5px 10px !important; 
+    margin: 0 2px !important; 
+    font-size: 13px !important; 
+    transition: all 0.2s; 
+} 
+
+.rhea-inquiry-field .bootstrap-select.show-tick .bs-actionsbox .btn:hover { 
+    background-color: #e5e5e5 !important; 
+    color: #000000 !important; 
+}
+
+/* ==========================================================================
+   4. TYPOGRAPHY & LABEL BOLDING FIXES
+   ========================================================================== */
+/* Force consistent bold weighting across all languages for Card Meta Titles */
+.rh_meta_titles,
+.rh_prop_card__meta .rh_meta_titles,
+.rh_list_card__meta .rh_meta_titles,
+.rh_property__meta .rh_meta_titles {
+    font-family: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-weight: 600 !important;
+}
+
+/* Force consistent bold weighting for Search Engine Filters and Checkboxes */
+.rhea_fields_labels,
+.rhea_fields_labels .label,
+.rhea-text-field-wrapper .label,
+.rhea-option-bar label {
+    font-family: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-weight: 600 !important;
+}
+
+/* Force search form labels to be bold */
+.rh_prop_search__form label, 
+.rh_prop_search__form span.label {
+    font-weight: bold !important;
+}
+
+/* ==========================================================================
+   5. HEADER & FOOTER LOGO SIZING & CLICK OVERLAP
+   ========================================================================== */
+/* Controls the maximum size of the logos and forces perfect vertical centering */
+.rh_logo_wrapper,
+.rh_logo_inner {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.rh_logo_inner a,
+.rh_footer__logo a {
+    display: flex !important;
+    align-items: center !important;
+    max-height: 75px !important; /* Forces the clickable box to stop before the search filter */
+    overflow: hidden !important;
+}
+
+.rh_logo_inner img,
+.rh_footer__logo img {
+    max-width: 220px !important; 
+    max-height: 75px !important; /* Prevents the invisible transparent canvas from expanding */
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+}
+
+/* ==========================================================================
+   MOBILE LOGO CENTERING FIX
+   ========================================================================== */
+/* Forces the flex containers in the mobile view to center horizontally */
+.rh_temp_header_responsive_view .rh_logo_wrapper,
+.rh_temp_header_responsive_view .rh_logo_inner,
+.rh_temp_header_responsive_view .rh_logo_inner a {
+    justify-content: center !important;
+}
+
+/* ==========================================================================
+   6. CUSTOM SVG COLOR INHERITANCE
+   ========================================================================== */
+/* Single Property Page: Forces custom SVGs to match the theme's green */
+.rh_property__meta svg {
+    color: #1ea69a !important;
+}
+
+/* Property Cards (List & Grid): Forces custom SVGs to match the default grey */
+.rh_prop_card__meta svg,
+.rh_list_card__meta svg {
+    color: #808080 !important; 
+}
+
+/* ==========================================================================
+   7. SEARCH ENGINE - PARENT PROPERTY TYPE HIGHLIGHTING
+   ========================================================================== */
+.bootstrap-select .dropdown-menu li a.rh-parent-type span.text {
+    font-weight: 800 !important;
+    color: #1ea69a !important; /* green */
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   8. SEARCH ENGINE - LOCATION LEVELS HIGHLIGHTING & INDENTATION
+   ========================================================================== */
+
+/* Level 1: Region (Top Level) */
+.bootstrap-select .dropdown-menu li a.rh-loc-lvl-1 span.text {
+    font-weight: 800 !important;
+    color: #1ea69a !important; /* Theme primary green */
+    text-transform: uppercase;
+}
+
+/* Level 2: Municipality (1st Indent) */
+.bootstrap-select .dropdown-menu li a.rh-loc-lvl-2 {
+    padding-left: 28px !important; /* Replaces the physical dash with clean spacing */
+}
+.bootstrap-select .dropdown-menu li a.rh-loc-lvl-2 span.text {
+    font-weight: 700 !important;
+    color: #333333 !important;
+}
+
+/* Level 3: Specific Area (2nd Indent) */
+.bootstrap-select .dropdown-menu li a.rh-loc-lvl-3 {
+    padding-left: 45px !important; /* Pushes the specific areas further in */
+}
+.bootstrap-select .dropdown-menu li a.rh-loc-lvl-3 span.text {
+    font-weight: 400 !important;
+    color: #777777 !important;
+}
+
+
+/* ==========================================================================
+   9. SINGLE PROPERTY - ALIGN DETAILS WITH SLIDER
+   ========================================================================== */
+/* Remove the default sidebar gap and expand the details box to match the slider */
+.single-property .rh_property__wrap .rh_property__main {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    margin: 0 auto !important;
+}
+
+.single-property .rh_property__wrap .rh_property__sidebar {
+    display: none !important;
+}
+
+/* ==========================================================================
+   10. SINGLE PROPERTY - TYPOGRAPHY HIERARCHY
+   ========================================================================== */
+
+/* 1. Main Section Headings (Περιγραφή, Πρόσθετες λεπτομέρειες, Χαρακτηριστικά κλπ) */
+.property-content-section > h4.rh_property__heading,
+.rh_property__common_note > h4.rh_property__heading,
+.rh_property__similar_properties > h3.rh_property__heading {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+}
+
+/* 2. Group Subheadings (Κτίσμα, Παροχές, Λοιπά Στοιχεία) */
+.rh-details-sorted h4.rh_property__heading {
+    font-size: 17px !important;
+    font-style: italic !important;
+    color: #666666 !important;
+    border-bottom: 1px dashed #eaeaea !important;
+}
+
+
+/* ==========================================================================
+   11. SINGLE PROPERTY - 1-PHOTO FALLBACK ALIGNMENT
+   ========================================================================== */
+.single-property #property-featured-image {
+    height: 550px !important; 
+    max-height: 60vh !important;
+    background-color: #f5f5f5 !important;
+    border-radius: 4px;
+    overflow: hidden !important;
+    margin-bottom: 15px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.single-property #property-featured-image a {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.single-property #property-featured-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+}
+
+/* ==========================================================================
+   12. ELEMENTOR GRID ANIMATIONS & THUMBNAILS
+   ========================================================================== */
+/* Disable RealHomes Elementor grid fade/shine animations globally */
+.rhea-trigger-animate,
+.rhea-animate-item,
+.rhea-animation-shine,
+.rh-property-card-v17 {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Force full color and 100% opacity on RealHomes V17 thumbnails */
+.rh-property-card-v17 .rh-property-thumb-wrapper img,
+.rh-property-card-v17 .property-thumbnail img {
+    opacity: 1 !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    mix-blend-mode: normal !important;
+}
+
+/* ==========================================================================
+   13. FLOATING HEADER & GAP REMOVAL (BILINGUAL)
+   ========================================================================== */
+/* Prevent theme JavaScript from pushing the page down */
+body.home,
+.home .rh_wrap {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/*  Remove default spacings from RealHomes content wrappers */
+.home .wrapper-home-sections,
+.home .rh_section--content_padding,
+.home .rh_content,
+.home .elementor {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Force the Header to float OVER the Elementor background */
+.home .rh_long_screen_header_temp,
+.home .rh_responsive_header_temp {
+    position: absolute !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+}
+
+/* floating offset for the WordPress Admin Bar */
+body.home:not(.admin-bar) .rh_long_screen_header_temp,
+body.home:not(.admin-bar) .rh_responsive_header_temp {
+    top: 0 !important;
+}
+.home.admin-bar .rh_long_screen_header_temp,
+.home.admin-bar .rh_responsive_header_temp {
+    top: 32px !important;
+}
+@media screen and (max-width: 782px) {
+    .home.admin-bar .rh_long_screen_header_temp,
+    .home.admin-bar .rh_responsive_header_temp {
+        top: 46px !important;
+    }
+}
+
+/* Style the Header with a smooth gradient fade */
+.home .rh_header_advance {
+    background-color: transparent !important;
+    /* Fades from 95% dark grey at the top to 0% invisible at the bottom */
+    background: linear-gradient(to bottom, rgba(33, 33, 33, 0.95) 0%, rgba(33, 33, 33, 0) 100%) !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+/* Keep the header solid when the user scrolls down the page */
+.home .rh_header_advance.rh-sticky-header {
+    background: rgba(33, 33, 33, 0.95) !important;
+}
+
+/* Ensure inner wrapper is transparent to avoid double-darkening the logo */
+.home .rh_header__wrap {
+    background: transparent !important;
+}
+
+/* Hide unused theme banner */
+.home .rh_banner {
+    display: none !important;
+}
+
+
+/* ==========================================================================
+ 14. SEARCH ENGINE - DISABLED DROPDOWN OPTIONS
+   ========================================================================== */
+/* greys out any disabled options */
+.bootstrap-select .dropdown-menu li.disabled a span.text {
+    color: #b0b0b0 !important;
+    opacity: 0.6 !important;
+}
+
+/* ==========================================================================
+   15. CUSTOM ADDRESS MAP LINKS
+   ========================================================================== */
+a.rh-custom-address-link {
+    color: inherit !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease-in-out;
+}
+
+a.rh-custom-address-link:hover {
+    color: #1ea69a !important; /* Theme Primary Green */
+}
+
+
+/* ==========================================================================
+   16. SINGLE PROPERTY - COMMON NOTES ("ΕΠΙΣΗΜΑΝΣΕΙΣ") STYLING
+   ========================================================================== */
+.rh_property__common_note .rh-property-note-inner-wrap {
+    background-color: #f4f8fb !important; /* Soft, clean blue-grey background */
+    border-left: 5px solid #1ea69a !important; /* Theme Primary Green */
+    padding: 20px 25px !important;
+    border-radius: 6px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03) !important;
+}
+
+/* Reset default list styling */
+.rh_property__common_note .rh-property-note-inner-wrap ul.rh-custom-notes-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Space out the individual sentences */
+.rh_property__common_note .rh-property-note-inner-wrap ul.rh-custom-notes-list li {
+    position: relative !important;
+    padding-left: 18px !important;
+    color: #555555 !important;
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 8px !important;
+}
+
+.rh_property__common_note .rh-property-note-inner-wrap ul.rh-custom-notes-list li:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Create a custom, elegant green dot marker */
+.rh_property__common_note .rh-property-note-inner-wrap ul.rh-custom-notes-list li::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 10px !important;
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background-color: #1ea69a !important;
+}
+
+
+/* ==========================================================================
+   18. INQUIRY FORM MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    .rhea-inquiry-form {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    /* Force every input field, dropdown, and checkbox wrapper to span the full screen */
+    .rhea-inquiry-form .rhea-inquiry-field,
+    .rhea-inquiry-form .rhea-option-bar,
+    .rhea-inquiry-form .rh_contact__input {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 15px !important; /* Adds breathing room between the stacked fields */
+        box-sizing: border-box !important;
+    }
+
+    .rhea-inquiry-form .bootstrap-select.show-tick > .btn {
+        width: 100% !important;
+    }
+}
+
+/* ==========================================================================
+   19. SINGLE PROPERTY - SLIDER PHOTO COUNTER
+   ========================================================================== */
+.rh-custom-slider-counter {
+    position: absolute !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    background: rgba(33, 33, 33, 0.75) !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 6px 14px !important;
+    border-radius: 4px !important;
+    z-index: 99 !important;
+    pointer-events: none !important; /* Prevents it from blocking clicks */
+    letter-spacing: 0.5px !important;
+    font-family: "Roboto", system-ui, -apple-system, sans-serif !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+    backdrop-filter: blur(4px) !important;
+    transition: opacity 0.3s ease;
+}
+
+/* Ensure the wrapper handles absolute positioning correctly */
+.single-property .property-detail-slider-wrapper,
+.single-property .inspiry_property_portrait_slider {
+    position: relative !important;
+}
+
+
+/* ==========================================================================
+   20. PREVENT ELEMENTOR BANNER SNAP (NATIVE CSS STRETCH)
+   ========================================================================== */
+body.home .elementor-section-stretched {
+    width: 100vw !important;
+    position: relative !important;
+    left: calc(-50vw + 50%) !important;
+}
+
+body.home {
+    overflow-x: hidden !important; /* Prevents horizontal scrollbar from 100vw */
+}
+
+/* ==========================================================================
+   21. WIDEN HEADER TO PREVENT MENU WRAPPING
+   ========================================================================== */
+@media screen and (min-width: 1024px) {
+    .rh_header_advance .rh_header__wrap {
+        max-width: 1450px !important; /* Increases the container size from the default */
+        width: 96% !important; /* Allows it to stretch closer to the physical edges of the monitor */
+    }
+}
+
+
+/* ==========================================================================
+   22. DASHBOARD: HIDE SPECIFIC COLUMNS IN FAVORITES
+   ========================================================================== */
+.dashboard-favorites .column.column-date,
+.dashboard-favorites .column.column-status {
+    display: none !important;
+}
+.rh-user-account-profile-image {
+    display: none !important;
+}
+
+/* ==========================================================================
+   24. MOBILE HEADER: HIDE BULKY PHONE ROW
+   ========================================================================== */
+.rh_responsive_header_temp .rh_menu__user_phone {
+    display: none !important;
+}
+
+
+/* ==========================================================================
+   1. INPUT FIELD VISIBILITY & WIDTH FIX (GREEK & ENGLISH)
+   ========================================================================== */
+
+/* A. Strip native padding that causes the text field indentation */
+#rhea-6bf4b95f .rhea_mod_text_field,
+#rhea-d8801fb .rhea_mod_text_field {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* B. Force the span wrapper to be a block container */
+#rhea-6bf4b95f .rhea_mod_text_field .rhea-text-field-wrapper,
+#rhea-d8801fb .rhea_mod_text_field .rhea-text-field-wrapper {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* C. Style the text input to match dropdowns and destroy native caps */
+#rhea-6bf4b95f .rhea_mod_text_field .rhea-text-field-wrapper input,
+#rhea-d8801fb .rhea_mod_text_field .rhea-text-field-wrapper input {
+    display: block !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: none !important; /* Destroys RealHomes native inline caps */
+    
+    height: 48px !important;
+    padding: 0 15px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    
+    background-color: #f9f9f9 !important;
+    border: 1px solid #e5e5e5 !important;
+    border-radius: 4px !important;
+    color: #4a4a4a !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease;
+}
+
+/* D. Match the dropdown buttons */
+#rhea-6bf4b95f .bootstrap-select > .btn.dropdown-toggle,
+#rhea-d8801fb .bootstrap-select > .btn.dropdown-toggle {
+    height: 48px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background-color: #f9f9f9 !important;
+    border: 1px solid #e5e5e5 !important;
+    border-radius: 4px !important;
+    color: #4a4a4a !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease;
+}
+
+/* E. Hover & Focus Interactive States */
+#rhea-6bf4b95f .bootstrap-select > .btn.dropdown-toggle:hover,
+#rhea-6bf4b95f .bootstrap-select > .btn.dropdown-toggle:focus,
+#rhea-6bf4b95f .rhea_mod_text_field .rhea-text-field-wrapper input:hover,
+#rhea-6bf4b95f .rhea_mod_text_field .rhea-text-field-wrapper input:focus,
+#rhea-d8801fb .bootstrap-select > .btn.dropdown-toggle:hover,
+#rhea-d8801fb .bootstrap-select > .btn.dropdown-toggle:focus,
+#rhea-d8801fb .rhea_mod_text_field .rhea-text-field-wrapper input:hover,
+#rhea-d8801fb .rhea_mod_text_field .rhea-text-field-wrapper input:focus {
+    border-color: #1ea69a !important;
+    background-color: #ffffff !important;
+    outline: none !important;
+}
+/* ==========================================================================
+   2. COLOR CONTRAST & CTA HIERARCHY
+   ========================================================================== */
+/* Fixes the "Περισσότερα φίλτρα" toggle to use the brand's dark teal for readability */
+.rhea_search_form .rhea_advanced_expander {
+    color: #1ea69a !important;
+    background-color: transparent !important;
+    font-weight: 600 !important;
+}
+
+.rhea_search_form .rhea_advanced_expander svg {
+    fill: #1ea69a !important;
+}
+
+/* Makes the primary "Αναζήτηση" button aggressively pop with the brand's vibrant orange */
+.rhea_search_form .rhea_search_form_button {
+    background-color: #ea723d !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+    transition: background-color 0.3s ease;
+}
+
+/* Slightly darker orange for the hover state */
+.rhea_search_form .rhea_search_form_button:hover {
+    background-color: #d15d2a !important;
+}
+
+/* ==========================================================================
+   3. THE ACTIVE & HOVER MENU ITEMS (Header)
+   ========================================================================== */
+
+/* 1. ACTIVE ITEM: Transparent background, Orange text, Orange underline */
+.rh_header_var_1 ul.rh_menu__main > li.current-menu-item > a,
+.rh_header_var_1 ul.rh_menu__main > li.current_page_item > a,
+.rh_header_var_1 ul.rh_menu__main > li.rh-active > a {
+    background-color: transparent !important;
+    color: #ea723d !important; 
+    position: relative;
+}
+
+.rh_header_var_1 ul.rh_menu__main > li.current-menu-item > a::after,
+.rh_header_var_1 ul.rh_menu__main > li.current_page_item > a::after,
+.rh_header_var_1 ul.rh_menu__main > li.rh-active > a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20px; 
+    right: 20px;
+    height: 2px;
+    background-color: #ea723d !important;
+    border-radius: 2px;
+}
+
+/* 2. HOVER ITEM: Dark Orange background, White text 
+   (Using li:hover so the parent stays dark orange while navigating the dropdown) */
+.rh_header_var_1 ul.rh_menu__main > li:hover > a {
+    background-color: #A65600 !important;
+    color: #ffffff !important;
+}
+
+
+/* ==========================================================================
+   25. SEARCH ENGINE - FROSTED GLASS & UNIFIED BACKGROUND
+   ========================================================================== */
+/* Target the main outer wrapper that currently forces the bright mint green */
+.rhea_ultra_search_form_wrapper .rhea-ultra-search-form-fields {
+    background-color: rgba(255, 255, 255, 0.92) !important; 
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-radius: 24px !important; 
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.rhea_ultra_search_form_wrapper .rhea-ultra-search-form-inner {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+.rhea_ultra_search_form_wrapper .rhea-more-options-mode-container .rhea-more-options-wrapper label {
+    color: #333333 !important;
+    font-weight: 500 !important;
+}
+.rhea_ultra_search_form_wrapper .rhea-more-options-mode-container .rhea-more-options-wrapper label:before {
+    border-color: #1ea69a !important;
+}
