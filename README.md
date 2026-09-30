@@ -3,7 +3,7 @@
 > **Disclaimer:** This repository contains isolated and sanitized core logic from a live production real estate platform. Proprietary business rules, authentication keys, database credentials, and full application structures have been scrubbed to comply with strict confidentiality and security standards.
 
 ## 1. Project Overview
-This repository demonstrates the backend architecture, data engineering, and spatial algorithms used to deploy a highly scalable real estate platform. Serving as the sole platform engineer, the core challenge was bridging a legacy SQL-based CRM with a modern web frontend while completely eliminating manual data entry, optimizing cloud storage, and building a dynamic geospatial search engine.
+This repository demonstrates the backend architecture, data engineering, and spatial algorithms used to deploy a highly scalable real estate platform. Serving as the sole platform engineer, the core challenge was bridging a legacy SQL-based CRM with a modern web frontend while completely eliminating manual data entry, optimizing storage, reducing latency, and building a dynamic geospatial search engine.
 
 ## 2. Directory Navigator
 The core data engineering logic is concentrated in the following sanitized files:
