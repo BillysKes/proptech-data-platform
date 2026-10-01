@@ -15,7 +15,7 @@ The core data engineering logic is concentrated in the following files:
 ## 3. Core Architecture & Isolated Modules
 
 ### A. Automated ETL Pipeline & Bidirectional Sync (`bridges_update.php`)
-To ensure 100% inventory accuracy without manual intervention, an automated ETL (Extract, Transform, Load) pipeline was engineered using scheduled PHP cronjobs and a custom REST API. 
+To ensure 100% inventory accuracy without manual intervention, an automated ETL pipeline was engineered using scheduled PHP cronjobs and a custom REST API. 
 * **Batch Processing:** Data payloads from the external CRM are chunked into optimized batches (e.g., 5 listings per request) to prevent server timeout errors during heavy data migrations.
 * **Bidirectional State Acknowledgments:** Once a batch is successfully ingested and mapped to the platform's database, the script fires an acknowledgment webhook (`action=ack`) back to the legacy CRM to update the synchronization state of each listing.
 * **Automated Ghost Cleanup:** The pipeline continually cross-references active platform IDs with live CRM IDs, autonomously detecting and purging "ghost" listings (sold or removed properties) to maintain strict database integrity.
