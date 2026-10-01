@@ -29,8 +29,8 @@ Traditional real estate searches rely on human agents manually tagging propertie
 ### C. Cloud Media Virtualization (`includes/rest-api-sync.php`)
 Real estate platforms are exceptionally heavy on image hosting, which rapidly inflates local server storage costs and degrades load performance. 
 * **Database Query Interception:** Native CMS media queries (e.g., `wp_get_attachment_url`, `image_downsize`) were intercepted and overridden.
-* **Ghost Attachments:** Instead of downloading thousands of high-resolution property photos to the local server, the database was engineered to store "ghost" attachment IDs containing external AWS S3 URLs.
-* **Dynamic WebP CDN Proxy:** The intercepted URLs are routed through an external image proxy (`wsrv.nl`) that resizes images on-the-fly and converts them to next-gen WebP formats before delivering them via a global CDN.
+* **Ghost Attachments:** Instead of downloading thousands of high-resolution property photos to the local server, the database was engineered to store "ghost" attachment IDs containing external AWS S3 URLs which is also configured with Cloudfront. 
+* **Dynamic WebP CDN Proxy:** The intercepted URLs are routed through an external image proxy (`wsrv.nl`) that resizes images on-the-fly to create thumbnail versions and converts them to WebP formats before delivering them via a global CDN.
 * **Impact:** Completely eliminated local file storage for property media, reducing the server footprint to near-zero while drastically improving page load latency.
 
 ### D. Backend Search Optimization (`includes/search-overrides.php`)
