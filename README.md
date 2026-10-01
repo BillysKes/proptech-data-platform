@@ -6,7 +6,7 @@
 This repository demonstrates the backend architecture, data engineering, and spatial algorithms used to deploy a highly scalable real estate platform. Serving as the sole platform engineer, the core challenge was bridging a legacy SQL-based CRM with a modern web frontend while completely eliminating manual data entry, optimizing storage, reducing latency, and building a dynamic geospatial search engine where some of its search filters are hidden or shown depending on the characteristics of the user's selected options.
 
 ## 2. Directory Navigator
-The core data engineering logic is concentrated in the following sanitized files:
+The core data engineering logic is concentrated in the following files:
 * `bridges_update.php`: Contains the automated ETL batch processing, bidirectional API syncing, and ghost-listing cleanup logic.
 * `includes/rest-api-sync.php`: Houses the custom REST API endpoints, the Point-in-Polygon geospatial algorithm, and the AWS media virtualization hooks.
 * `includes/search-overrides.php`: Demonstrates backend search optimization via complex SQL meta-query interception (`pre_get_posts`).
