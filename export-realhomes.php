@@ -33,14 +33,14 @@ if (isset($_GET['action']) && $_GET['action'] === 'ack') {
     if (!empty($input['synced_oids']) && is_array($input['synced_oids'])) {
         $oids = array_map('intval', $input['synced_oids']); 
         $oid_list = implode(',', $oids);
-        $mysqli->query("UPDATE Listings_Master SET PortalUpdated = 1 WHERE OID IN ($oid_list)");
+        $mysqli->query("UPDATE OMandates SET SiteUpdated = 1 WHERE OID IN ($oid_list)");
         $affected_rows += $mysqli->affected_rows;
     }
     
     if (!empty($input['deleted_oids']) && is_array($input['deleted_oids'])) {
         $oids = array_map('intval', $input['deleted_oids']); 
         $oid_list = implode(',', $oids);
-        $mysqli->query("UPDATE Listings_Master SET PortalUpdated = 0 WHERE OID IN ($oid_list)");
+        $mysqli->query("UPDATE OMandates SET SiteUpdated = 0 WHERE OID IN ($oid_list)");
         $affected_rows += $mysqli->affected_rows;
     }
     
@@ -51,31 +51,31 @@ $export_data = [];
 
 for ($CatID = 1; $CatID <= 3; $CatID++) {
     
-    $Type = CAT_TABLE[$CatID]; 
+    $Table = CAT_TABLE[$CatID]; 
     
     if ($CatID < 3) {
-        $BuildingSQL1 = ', Buildings_Media.Photos AS BuildingPhotos'; 
-        $BuildingSQL2 = "LEFT JOIN Buildings_Media ON Properties_$Type.BuildingID=Buildings_Media.ID";
+        $BuildingSQL1 = ', Buildings.Photos AS BuildingPhotos'; 
+        $BuildingSQL2 = "LEFT JOIN Buildings ON O$Table.BuildingID=Buildings.ID";
     } else {
         $BuildingSQL1 = ''; 
         $BuildingSQL2 = '';
     }
 
-    $query = "SELECT Listings_Master.*, Properties_$Type.*, Locations_Area.Name_EL, Locations_Area.Name_EN, Locations_Geo.Bounds AS PlaceBounds, Locations_Municipality.Name_EL AS DimosEL, Locations_Municipality.Name_EN AS DimosEN, Locations_Region.Name_EL AS PeriferiaEL, Locations_Region.Name_EN AS PeriferiaEN, Media_Videos.YouTubeID $BuildingSQL1 
-              FROM Listings_Master 
-              LEFT JOIN Properties_$Type ON Listings_Master.PropertyID=Properties_$Type.ID 
+    $query = "SELECT OMandates.*, O$Table.*, Places.PlaceEL, Places.PlaceEN, PlacesGeo.Bounds AS PlaceBounds, Dimoi.DimosEL, Dimoi.DimosEN, Periferies.PeriferiaEL, Periferies.PeriferiaEN, Videos.YouTubeID $BuildingSQL1 
+              FROM OMandates 
+              LEFT JOIN O$Table ON OMandates.PropertyID=O$Table.ID 
               $BuildingSQL2 
-              LEFT JOIN Locations_Area ON Properties_$Type.Place=Locations_Area.ID 
-              LEFT JOIN Locations_Geo ON Properties_$Type.Place=Locations_Geo.ID 
-              LEFT JOIN Locations_Municipality ON Properties_$Type.DimosID=Locations_Municipality.ID
-              LEFT JOIN Locations_Region ON Locations_Municipality.RegionID=Locations_Region.ID 
-              LEFT JOIN Media_Videos ON Properties_$Type.VideoID=Media_Videos.VID
-              WHERE Listings_Master.Agency_ID = [AGENCY_ID] 
-              AND Listings_Master.Category = $CatID 
+              LEFT JOIN Places ON O$Table.Place=Places.ID 
+              LEFT JOIN PlacesGeo ON O$Table.Place=PlacesGeo.ID 
+              LEFT JOIN Dimoi ON O$Table.DimosID=Dimoi.ID
+              LEFT JOIN Periferies ON Dimoi.PeriferiaID=Periferies.ID 
+              LEFT JOIN Videos ON O$Table.VideoID=Videos.VID
+              WHERE OMandates.MesitikoID = 1 
+              AND OMandates.Category = $CatID 
               AND (
-                    (Listings_Master.PortalActive = 1 AND Listings_Master.Active >= 0 AND Listings_Master.PortalUpdated = 0)
+                    (OMandates.SiteActive = 1 AND OMandates.Active >= 0 AND OMandates.SiteUpdated = 0)
                     OR
-                    ((Listings_Master.PortalActive = 0 OR Listings_Master.Active < 0) AND Listings_Master.PortalUpdated = 1)
+                    ((OMandates.SiteActive = 0 OR OMandates.Active < 0) AND OMandates.SiteUpdated = 1)
                 )";
 
     if (($result = $mysqli->query($query)) !== FALSE) {
@@ -84,7 +84,7 @@ for ($CatID = 1; $CatID <= 3; $CatID++) {
             $mid = $ad['MID'];
             
             $is_published = (
-                isset($ad['PortalActive']) && $ad['PortalActive'] == 1 && 
+                isset($ad['SiteActive']) && $ad['SiteActive'] == 1 && 
                 isset($ad['Active']) && (int)$ad['Active'] >= 0
             );
             
