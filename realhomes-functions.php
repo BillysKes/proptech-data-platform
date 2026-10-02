@@ -31,7 +31,7 @@ function RealHomes_Struct($CatID, $ad) {
     foreach ($raw_photos as $filename) {
         if (!empty($filename) && strpos($filename, '-') === false) { 
             $photo_path = FullPhotoPath($filename);                        
-            $public_url = str_replace('legacy-crm.com', 'client-website.com', $photo_path) . 'l.jpg';
+            $public_url = str_replace('legacy-crm.com', 'thessaloniki-realestate', $photo_path) . 'l.jpg';
             $photos_array[] = $public_url;
         }
     }
