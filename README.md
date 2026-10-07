@@ -1,4 +1,4 @@
-# PropTech Data Platform & Cloud Infrastructure Showcase
+# PropTech Data Platform Showcase
 
 > **Disclaimer:** This repository contains isolated and sanitized core logic from a live production real estate platform. Proprietary business rules, authentication keys, database credentials, and full application structures have been scrubbed to comply with strict confidentiality and security standards.
 
