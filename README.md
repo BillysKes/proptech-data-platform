@@ -22,8 +22,8 @@ To ensure 100% inventory accuracy without manual intervention, an automated ETL 
 
 ### B. Geospatial Search & Point-in-Polygon Algorithm (`includes/rest-api-sync.php`)
 Traditional real estate searches rely on human agents manually tagging properties to specific municipalities. This creates data quality issues if tags are forgotten or misspelled.
-* **Mathematical Geofencing:** Implemented a custom Ray-Casting (Point-in-Polygon) algorithm from scratch (`rh_point_in_polygon`). 
-* **Dynamic Location Assignment:** The algorithm extracts the raw latitude and longitude coordinates of incoming CRM properties and mathematically calculates if the pin falls inside predefined geographic boundary polygons (`rh_run_background_geofencing`). 
+* **Mathematical Geofencing:** Implemented a custom Ray-Casting algorithm (`rh_point_in_polygon`) from scratch to evaluate coordinate data without relying on paid external mapping APIs. The mathematical model casts a horizontal ray rightward from the property's coordinate point and counts its intersections with the polygon's edges. By applying a modulus operation ($c \bmod 2 \neq 0$), an odd number of intersections mathematically confirms the property falls strictly inside the geofence.
+* **Dynamic Location Assignment:** The background geofencing logic (`rh_run_background_geofencing`) is automatically triggered via the custom `/sync-locations` REST endpoint. Whenever a geographic polygon is created or modified in the external CRM, the platform intercepts the webhook, recalculates all property coordinates, and dynamically reassigns the affected inventory to the updated geographic buckets without manual intervention.
 * **Impact:** This significantly enhanced search retrieval by surfacing nearby listings based on actual geographic boundaries, entirely overriding the reliance on static, error-prone manual location assignments.
 
 ### C. Cloud Media Virtualization (`includes/rest-api-sync.php`)
