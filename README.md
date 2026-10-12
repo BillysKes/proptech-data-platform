@@ -1,12 +1,12 @@
 # PropTech Data Platform Showcase
 
-> **Disclaimer:** This repository contains isolated and sanitized core logic from a live production real estate platform. Proprietary business rules, authentication keys, database credentials, and full application structures have been scrubbed to comply with strict confidentiality and security standards.
+> **Disclaimer:** This repository contains isolated and anonymized core logic from a live production real estate platform. Proprietary business rules, authentication keys, database credentials, and full application structures have been scrubbed to comply with strict confidentiality and security standards.
 
 ## 1. Project Overview
 This repository demonstrates the backend architecture, data engineering, and spatial algorithms used to deploy a highly scalable real estate platform. Serving as the sole platform engineer, the core challenge was bridging a legacy SQL-based CRM with a modern web frontend while completely eliminating manual data entry, optimizing storage, reducing latency, and building a dynamic geospatial search engine where filters intelligently adapt to user selections.
 
 ## 2. Directory Navigator
-For engineering managers reviewing this codebase, the core data engineering logic is concentrated in the following sanitized files:
+Τhe core data engineering logic is concentrated in the following sanitized files:
 * `bridges_update.php`: Contains the automated ETL batch processing, bidirectional API syncing, and ghost-listing cleanup logic.
 * `includes/rest-api-sync.php`: Houses the custom REST API endpoints, the Point-in-Polygon geospatial algorithm, and the AWS media virtualization hooks.
 * `includes/search-overrides.php`: Demonstrates backend search optimization via complex SQL meta-query interception (`pre_get_posts`).
